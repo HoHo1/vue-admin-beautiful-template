@@ -62,6 +62,25 @@
           </div>
         </el-card>
       </el-col>
+      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
+        <el-card>
+          <div slot="header">
+            商业用途 永久更新维护 免费附带vip群（可加4名员工）
+            <el-button style="float: right; padding: 3px 0;" type="text"
+              >￥1499</el-button
+            >
+          </div>
+          <div>
+            <ul>
+              <li>支持以上所有特权</li>
+              <li>永久更新</li>
+              <li>优先问题解答</li>
+              <li>提供低价外包合作机会</li>
+            </ul>
+            <img src="@/assets/ewm_vip.png" alt="" />
+          </div>
+        </el-card>
+      </el-col>
     </el-row>
   </div>
 </template>
