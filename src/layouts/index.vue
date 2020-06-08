@@ -14,12 +14,12 @@
           v-if="tagsBar === 'true' || tagsBar === true"
           :class="{ 'tag-view-show': tagsBar }"
         >
-          <div class="byui-main">
+          <div class="vab-main">
             <tags-bar></tags-bar>
           </div>
         </div>
       </div>
-      <div class="byui-main main-padding">
+      <div class="vab-main main-padding">
         <app-main></app-main>
       </div>
     </div>
@@ -37,7 +37,7 @@
         @click="handleFoldSideBar"
       />
       <side-bar></side-bar>
-      <div class="byui-main" :class="collapse ? 'is-collapse-main' : ''">
+      <div class="vab-main" :class="collapse ? 'is-collapse-main' : ''">
         <div :class="header === 'fixed' ? 'fixed-header' : ''">
           <nav-bar></nav-bar>
           <tags-bar v-if="tagsBar === 'true' || tagsBar === true" />
@@ -58,7 +58,7 @@ import {
   TopBar,
   BackToTop,
 } from "./components";
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import { tokenName } from "@/config/settings";
 import Media from "./mixin/Media";
 
@@ -103,9 +103,9 @@ export default {
     });
   },
   methods: {
-    handleFoldSideBar() {
-      this.$store.dispatch("settings/foldSideBar");
-    },
+    ...mapActions({
+      handleFoldSideBar: "settings/foldSideBar",
+    }),
   },
 };
 </script>
@@ -138,7 +138,7 @@ export default {
     }
 
     ::v-deep {
-      .byui-main {
+      .vab-main {
         width: 88%;
         margin: auto;
       }
@@ -195,7 +195,7 @@ export default {
       padding-top: 56px;
     }
 
-    .byui-main {
+    .vab-main {
       position: relative;
       min-height: 100%;
       margin-left: $base-left-menu-width;
@@ -259,7 +259,7 @@ export default {
           width: 0;
         }
 
-        .byui-main {
+        .vab-main {
           width: 100%;
           margin-left: 0;
 
@@ -270,7 +270,7 @@ export default {
         }
       }
 
-      .byui-main {
+      .vab-main {
         .fixed-header {
           left: 0 !important;
           width: 100% !important;

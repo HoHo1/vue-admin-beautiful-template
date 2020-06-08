@@ -1,6 +1,6 @@
 <template>
   <el-col :xs="24" :sm="24" :md="24" :lg="span" :xl="span">
-    <div class="right-panel">
+    <div class="left-panel">
       <slot></slot>
     </div>
   </el-col>
@@ -8,11 +8,11 @@
 
 <script>
 export default {
-  name: "ByuiQueryFormRightPanel",
+  name: "VabQueryFormLeftPanel",
   props: {
     span: {
       type: Number,
-      default: 10,
+      default: 14,
     },
   },
   data() {

@@ -29,7 +29,7 @@ const install = (Vue, opts = {}) => {
       loading = Loading.service({
         lock: true,
         text: text || loadingText,
-        spinner: "byui-loading-type" + index,
+        spinner: "vab-loading-type" + index,
         background: "hsla(0,0%,100%,.8)",
       });
     }

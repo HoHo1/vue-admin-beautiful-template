@@ -1,12 +1,12 @@
 <template>
-  <el-row :gutter="0" class="byui-query-form">
+  <el-row :gutter="0" class="vab-query-form">
     <slot></slot>
   </el-row>
 </template>
 
 <script>
 export default {
-  name: "ByuiQueryForm",
+  name: "VabQueryForm",
   props: {},
   data() {
     return {};
@@ -25,7 +25,7 @@ export default {
   justify-content: flex-start;
 }
 
-.byui-query-form {
+.vab-query-form {
   margin-bottom: 10px;
 
   ::v-deep {

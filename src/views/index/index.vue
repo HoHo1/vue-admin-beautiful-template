@@ -23,7 +23,7 @@
               <li>提供问题讨论群972435319</li>
               <li>
                 提供
-                <a href="https://chu1204505056.gitee.io/byui-bookmarks/"
+                <a href="https://chu1204505056.gitee.io/vab-bookmarks/"
                   >讨论群专属文档</a
                 >
               </li>
