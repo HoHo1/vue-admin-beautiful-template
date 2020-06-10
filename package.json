@@ -49,7 +49,7 @@
     "zx-icon": "^1.0.2",
     "zx-keel": "^0.9.0",
     "zx-templates": "^0.0.6",
-    "zx-layouts": "^0.1.4"
+    "zx-layouts": "^0.1.5"
   },
   "devDependencies": {
     "@babel/register": "^7.10.1",
