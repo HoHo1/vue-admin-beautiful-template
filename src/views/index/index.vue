@@ -6,7 +6,7 @@
           <div slot="header">
             开源版本
             <el-button style="float: right; padding: 3px 0;" type="text"
-              >个人使用 永久免费</el-button
+              >永久免费</el-button
             >
           </div>
           <div>
@@ -28,7 +28,7 @@
                 >
               </li>
               <li>
-                不支持自定义版权，须保留控制台打印信息
+                只需保留控制台打印的框架信息即可免费商用
               </li>
             </ul>
             <img src="@/assets/ewm.png" alt="" />
@@ -40,13 +40,12 @@
           <div slot="header">
             商业用途 随意修改版权 提供vip群
             <el-button style="float: right; padding: 3px 0;" type="text"
-              >￥299</el-button
+              >￥299+￥100</el-button
             >
           </div>
           <div>
             <ul>
               <li>支持以上所有特权</li>
-              <li>可适配IE浏览器</li>
               <li>提供VIP讨论群805808910，群主每周定时授课</li>
               <li>
                 提供vip群专属文档加群获取，可快速入手框架，并迅速学会脚手架搭建，webpack打包优化
@@ -54,7 +53,6 @@
               <li>
                 可随意变更版权，但仅限自己团队使用，一旦发现恶意传播，二次售卖，不再提供更新支持
               </li>
-              <li>解锁多功能和组件</li>
               <li>你会得到意想不到的回报</li>
               <li>QQ咨询 1204505056</li>
             </ul>
@@ -62,7 +60,7 @@
           </div>
         </el-card>
       </el-col>
-      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
+      <!--  <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
         <el-card>
           <div slot="header">
             商业用途 永久更新维护 免费附带vip群（可加4名员工）
@@ -80,7 +78,7 @@
             <img src="@/assets/ewm_vip.png" alt="" />
           </div>
         </el-card>
-      </el-col>
+      </el-col> -->
     </el-row>
   </div>
 </template>
