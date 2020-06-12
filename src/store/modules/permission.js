@@ -1,6 +1,6 @@
 import { asyncRoutes, constantRoutes } from "@/router";
 import { getRouterList } from "@/api/router";
-import { filterAsyncRoutes, filterRoutes } from "@/utils/handleRoutes";
+import { filterAllRoutes, filterAsyncRoutes } from "@/utils/handleRoutes";
 
 const state = { routes: [], partialRoutes: [] };
 const getters = {
@@ -19,20 +19,21 @@ const mutations = {
   },
 };
 const actions = {
-  setRoutes({ commit }, permissions) {
-    let accessedRoutes;
+  async setRoutes({ commit }, permissions) {
+    let accessedRoutes = [];
     if (permissions.includes("admin")) {
-      accessedRoutes = asyncRoutes || [];
+      accessedRoutes = asyncRoutes;
     } else {
-      accessedRoutes = filterAsyncRoutes(asyncRoutes, permissions);
+      accessedRoutes = await filterAsyncRoutes(...asyncRoutes, permissions);
     }
+    console.log(accessedRoutes);
     commit("setRoutes", accessedRoutes);
     return accessedRoutes;
   },
   async setAllRoutes({ commit }) {
     let { data } = await getRouterList();
     data.push({ path: "*", redirect: "/404", hidden: true });
-    let accessRoutes = filterRoutes(data);
+    let accessRoutes = filterAllRoutes(data);
     commit("setAllRoutes", accessRoutes);
     return accessRoutes;
   },
