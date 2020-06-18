@@ -17,16 +17,20 @@ module.exports = {
   devPort: "80",
   //版本号
   version: process.env.VUE_APP_VERSION,
-  //烦请保留package.json作者信息 如需去除请联系群主QQ 1204505056 需支付299元 恶意修改发生纠纷及出现任何问题 由修改人自行承担
+  //烦请保留package.json作者信息 保留版权可免费商用 如需去除并自定义为自己企业的版权请联系群主QQ 1204505056 需支付299元 恶意修改发生纠纷及出现任何问题 由修改人自行承担
   copyright: process.env.VUE_APP_AUTHOR,
+  //是否显示顶部进度条
+  progressBar: true,
+  // 路由模式，可选值为 history 或 hash
+  routerMode: "hash",
   //不经过token校验的路由
   routesWhiteList: ["/login", "/404", "/401"],
   //加载时显示文字
   loadingText: "正在加载中...",
   //token名称
   tokenName: "accessToken",
-  //token表名
-  tokenTableName: "VUE-TABLE",
+  //token在localStorage、sessionStorage、cookie存储的key的名称
+  tokenTableName: "vue-admin-beautiful",
   //token存储位置localStorage sessionStorage cookie
   storage: "localStorage",
   //是否显示logo
@@ -55,8 +59,6 @@ module.exports = {
   noPermissionCode: 401,
   //是否显示在页面高亮错误
   errorLog: ["development", "test", "production"],
-  //设置生产环境是否屏蔽f12等开发组工具快捷键
-  shieldF12: false,
   //是否开启登录拦截
   loginInterception: true,
   //是否开启登录RSA加密
