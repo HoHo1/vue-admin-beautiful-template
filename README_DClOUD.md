@@ -1,15 +1,31 @@
-## 演示地址
+## 本项目地址
 
-## - [集成版本](http://beautiful.panm.cn/vue-admin-beautiful)
+#### - [基础版本 演示地址 vue-admin-beautiful ](http://beautiful.panm.cn/vue-admin-beautiful-template)
+#### - [集成版本 演示地址 vue-admin-beautiful ](http://beautiful.panm.cn/vue-admin-beautiful)
+#### - [clever 版本 演示地址 vue-admin-beautiful ](http://beautiful.panm.cn/vue-admin-clever)
 
-## - [基础版本](http://beautiful.panm.cn/vue-admin-beautiful-template)
+#### - [开源地址，感谢 star](https://github.com/chuzhixin/vue-admin-beautiful)
 
-## 文档地址：[点我](https://ext.dcloud.net.cn/plugin?id=1476)
+#### 学习讨论 QQ 群：972435319 群内提供基础版、集成版、clever 版本、详细文档与视频教程
 
-#### <font color="#FF0000" >在此声明 愿意保留源码版权（页面无需保留版权）即可免费商用 这是所有开源项目的共识 底下某位无脑喷子 你看 github 标星从 0 被你喷到了 2.0K 还得感谢你 让更多人看到了你口中的垃圾框架 我不清楚你口中抄袭指的是什么 尤雨溪 vue 不也被人骂做是抄袭吗 elementui 与 ivew 的源代码相似度也超级高 他俩是谁抄的谁呢 本框架的目录结构抄袭的并非花裤衩，ivew pro，ant design Pro 都是这样的目录结构 难道都是抄袭吗 规范的框架一定遵循的是 vue/cli4 的目录结构 vuex 使用的是官方的 demo 示例结构 代码是全人类的不是某一个人的 基于的是 async 的异步调用方式 相似点肯定有 我不知道后端管理框架能做出什么新花样 有现成的轮子当然可以拿过来使用 花裤衩的 tagsview 写的很棒 硬是被你骂的让我重写了 我现在后悔了 好的东西直接用为什么不行 我太把你当回事了 以至于影响到了我 写了个不好用的标签页出来 抱歉 我一个人的能力有限 我也不想再解释什么了 你觉得是抄的那就是抄的 你可以不用 我也很希望你能做一个更好的分享给大家 请你拿出你的本事 我愿意像你学习 集成这么多组件真的很不容易 谢谢您了 当好评差评成为我衡量成就感的标准时 我就看不到别的标准了 你骂吧我欣然接受 愿世间美好与你环环相扣。</font>
+#### 学习辅导、加入 VIP 群、购买自定义版权版本 联系 QQ 1204505056
 
-## 造谣零成本 仁者见仁 智者见智 框架好不好用 自己看疗效
+## 运行步骤，严格按步骤来
 
-## - [集成版开源地址，感谢 star](https://github.com/chuzhixin/vue-admin-beautiful)
+```bash
 
-## - [基础版开源地址，感谢 star](https://github.com/chuzhixin/vue-admin-beautiful-template)
+# 进入项目目录
+cd vue-element-admin-beautiful
+# 安装依赖，一定要cnpm i，别听网上乱七八糟的回答，本项目始终基于最新的package版本，cnpm不会出现任何问题，置于怎么安装cnpm自行百度
+cnpm i
+# 本地开发 启动项目
+cnpm run serve
+```
+
+## 友情链接
+
+#### - [uView 文档（超棒的移动跨端框架，文档详细，上手容易）](https://uviewui.com/)
+
+#### - [uView 开源地址（uView UI，是 uni-app 生态优秀的 UI 框架，全面的组件和便捷的工具会让您信手拈来，如鱼得水）](https://github.com/YanxinNet/uView)
+
+### <font color="red">已付费置顶 烦请小号刷差评的放过 我也需要养家糊口 也祝您财运亨通 好不好用请看演示地址 保留版权信息可免费商用（页面所有版权信息不付费也可完全删除） 完全自定义版权版本 299 元 VIP 群内提供详细的视频与文档教程，由于置顶费用较高，如有需要在本页加广告的朋友可以联系我</font>
