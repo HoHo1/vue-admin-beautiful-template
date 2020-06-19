@@ -1,65 +1,58 @@
 /**
  * @copyright chuzhixin 1204505056@qq.com
- * @description tagsBar多标签页逻辑，此处借鉴了很多开源项目，踩了很多坑，请勿修改
+ * @description tagsBar多标签页逻辑，前期借鉴了很多开源项目发现都有个共同的特点很繁琐并不符合框架设计的初衷，后来在github用户cyea的启发下完成了重构，请勿修改
  */
 
 const state = {
   visitedRoutes: [],
-  skeleton: true,
 };
 const getters = {
   visitedRoutes: (state) => state.visitedRoutes,
-  skeleton: (state) => state.skeleton,
 };
 const mutations = {
   addVisitedRoute(state, view) {
-    if (state.visitedRoutes.some((v) => v.path === view.path)) return;
-    state.visitedRoutes.push(
-      Object.assign({}, view, { title: view.meta.title || "新标签页" })
-    );
+    if (state.visitedRoutes.some((item) => item.path === view.path)) return;
+    state.visitedRoutes.push(Object.assign({}, view));
   },
   delVisitedRoute(state, view) {
-    for (const [i, v] of state.visitedRoutes.entries()) {
-      if (v.path === view.path) {
-        state.visitedRoutes.splice(i, 1);
-        break;
+    state.visitedRoutes.forEach((item, index) => {
+      if (item.path === view.path) {
+        state.visitedRoutes.splice(index, 1);
       }
-    }
+    });
   },
   delOthersVisitedRoute(state, view) {
-    state.visitedRoutes = state.visitedRoutes.filter((v) => {
-      return v.meta.affix || v.path === view.path;
+    state.visitedRoutes = state.visitedRoutes.filter((item) => {
+      return item.meta.affix || item.path === view.path;
     });
   },
   delLeftVisitedRoute(state, view) {
-    let _index = state.visitedRoutes.length;
-    state.visitedRoutes = state.visitedRoutes.filter((item, index) => {
+    let index = state.visitedRoutes.length;
+    state.visitedRoutes = state.visitedRoutes.filter((item) => {
       if (item.name === view.name) {
-        _index = state.visitedRoutes.indexOf(item);
+        index = state.visitedRoutes.indexOf(item);
       }
-      return item.meta.affix || _index <= state.visitedRoutes.indexOf(item);
+      return item.meta.affix || index <= state.visitedRoutes.indexOf(item);
     });
   },
   delRightVisitedRoute(state, view) {
-    let _index = state.visitedRoutes.length;
-    state.visitedRoutes = state.visitedRoutes.filter((item, index) => {
+    let index = state.visitedRoutes.length;
+    state.visitedRoutes = state.visitedRoutes.filter((item) => {
       if (item.name === view.name) {
-        _index = state.visitedRoutes.indexOf(item);
+        index = state.visitedRoutes.indexOf(item);
       }
-      return item.meta.affix || _index >= state.visitedRoutes.indexOf(item);
+      return item.meta.affix || index >= state.visitedRoutes.indexOf(item);
     });
   },
   delAllVisitedRoutes(state) {
-    const affixTags = state.visitedRoutes.filter((tag) => tag.meta.affix);
-    state.visitedRoutes = affixTags;
+    state.visitedRoutes = state.visitedRoutes.filter((item) => item.meta.affix);
   },
   updateVisitedRoute(state, view) {
-    for (let v of state.visitedRoutes) {
-      if (v.path === view.path) {
-        v = Object.assign(v, view);
-        break;
+    state.visitedRoutes.forEach((item) => {
+      if (item.path === view.path) {
+        item = Object.assign(item, view);
       }
-    }
+    });
   },
 };
 const actions = {
