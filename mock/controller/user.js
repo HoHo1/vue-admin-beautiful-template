@@ -38,7 +38,16 @@ export default [
       };
     },
   },
-
+  {
+    url: "/register",
+    type: "post",
+    response: (config) => {
+      return {
+        code: 200,
+        msg: "模拟注册成功",
+      };
+    },
+  },
   {
     url: "/user/info",
     type: "post",
@@ -55,7 +64,7 @@ export default [
         userName = "editor";
       }
       if ("test-accessToken" === accessToken) {
-        permissions = ["admin", "editor", "test"];
+        permissions = ["admin", "editor"];
         userName = "test";
       }
       return {

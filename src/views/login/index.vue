@@ -7,9 +7,8 @@
       :closable="false"
     >
     </el-alert>
-    <div class="login-logo-bysj"></div>
     <el-row>
-      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
+      <el-col :xs="24" :sm="24" :md="12" :lg="8" :xl="8">
         <el-form
           ref="loginForm"
           :model="loginForm"
@@ -22,11 +21,7 @@
             hello !
           </div>
           <div class="title-tips">欢迎来到{{ title }}！</div>
-          <el-form-item
-            style="margin-top: 49px;"
-            prop="userName"
-            class="login-form-admin"
-          >
+          <el-form-item style="margin-top: 40px;" prop="userName">
             <span class="svg-container svg-container-admin">
               <vab-icon :icon="['fas', 'user']" />
             </span>
@@ -39,7 +34,7 @@
               type="text"
             />
           </el-form-item>
-          <el-form-item prop="password" class="login-form-pass">
+          <el-form-item prop="password">
             <span class="svg-container svg-container-pass"
               ><vab-icon :icon="['fas', 'lock']"
             /></span>
@@ -70,6 +65,9 @@
             @click="handleLogin"
             >登录
           </el-button>
+          <router-link to="/register">
+            <div style="margin-top: 20px;">注册</div>
+          </router-link>
         </el-form>
       </el-col>
     </el-row>
@@ -133,47 +131,38 @@ export default {
   },
   watch: {
     $route: {
-      handler: function (route) {
+      handler(route) {
         this.redirect = route.query && route.query.redirect;
       },
       immediate: true,
     },
   },
-  created() {},
   mounted() {
     if ("production" !== process.env.NODE_ENV) {
       this.loginForm.userName = "admin";
       this.loginForm.password = "123456";
     }
-    setTimeout(() => {
-      this.animateShow = true;
-    });
   },
   methods: {
     showPwd() {
-      if (this.passwordType === "password") {
-        this.passwordType = "";
-      } else {
-        this.passwordType = "password";
-      }
+      this.passwordType === "password"
+        ? (this.passwordType = "")
+        : (this.passwordType = "password");
       this.$nextTick(() => {
         this.$refs.password.focus();
       });
     },
-    async handleLogin() {
-      this.$refs.loginForm.validate((valid) => {
+    handleLogin() {
+      this.$refs.loginForm.validate(async (valid) => {
         if (valid) {
           this.loading = true;
-          this.$store
-            .dispatch("user/login", this.loginForm)
-            .then(() => {
-              const routerPath = this.redirect === "/404" ? "/" : this.redirect;
-              this.$router.push({ path: routerPath || "/" }).catch(() => {});
-              this.loading = false;
-            })
-            .catch(() => {
-              this.loading = false;
-            });
+          await this.$store.dispatch("user/login", this.loginForm);
+          const routerPath =
+            this.redirect === "/404" || this.redirect === "/401"
+              ? "/"
+              : this.redirect;
+          this.$router.push({ path: routerPath }).catch((error) => {});
+          this.loading = false;
         } else {
           return false;
         }
@@ -215,16 +204,6 @@ export default {
 
     &:hover {
       opacity: 0.9;
-    }
-  }
-
-  .login-logo-bysj {
-    position: absolute;
-    top: 45px;
-    left: 45px;
-
-    img {
-      width: 180px;
     }
   }
 
