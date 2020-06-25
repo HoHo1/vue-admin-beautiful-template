@@ -91,6 +91,8 @@ export default {
   user-select: none;
   background: $base-color-white;
   box-shadow: $base-box-shadow;
+  padding-left: $base-padding;
+  padding-right: $base-padding;
 
   .left-panel {
     display: flex;
@@ -100,7 +102,6 @@ export default {
     max-height: 50px;
 
     .fold-unfold {
-      margin-left: 10px;
       font-size: 20px;
       color: $base-color-gray;
       cursor: pointer;
@@ -121,28 +122,6 @@ export default {
     height: 50px;
 
     ::v-deep {
-      .user-avatar {
-        margin-top: 2px;
-        margin-right: 5px;
-        font-weight: 600;
-        cursor: pointer;
-      }
-
-      .user-name {
-        position: relative;
-        top: -14px;
-        margin-right: 35px;
-        margin-left: 5px;
-        font-weight: 600;
-        cursor: pointer;
-      }
-
-      .user-name + i {
-        position: absolute;
-        top: 16px;
-        right: 15px;
-      }
-
       svg {
         width: 1em;
         height: 1em;

@@ -70,9 +70,8 @@ module.exports = {
     };
   },
   chainWebpack(config) {
-    config.plugins.delete("preload");
-    config.plugins.delete("prefetch");
-    config.resolve.symlinks(true);
+    /* config.plugins.delete("preload");
+    config.plugins.delete("prefetch"); */
     config.module
       .rule("svg")
       .exclude.add(resolve("src/remixIcon"))
@@ -96,26 +95,12 @@ module.exports = {
       .loader("svg-sprite-loader")
       .options({ symbolId: "colorful-icon-[name]" })
       .end();
-    config.module
-      .rule("vue")
-      .use("vue-loader")
-      .loader("vue-loader")
-      .tap((options) => {
-        options.compilerOptions.preserveWhitespace = true;
-        return options;
-      })
-      .end();
     config.when(process.env.NODE_ENV === "development", (config) => {
-      config.devtool("cheap-module-eval-source-map");
+      config.devtool("cheap-source-map");
     });
     config.when(process.env.NODE_ENV !== "development", (config) => {
       config.performance.set("hints", false);
       config.devtool("none");
-      config
-        .plugin("ScriptExtHtmlWebpackPlugin")
-        .after("html")
-        .use("script-ext-html-webpack-plugin", [{ inline: /runtime\..*\.js$/ }])
-        .end();
       config.optimization.splitChunks({
         chunks: "all",
         cacheGroups: {
@@ -144,7 +129,6 @@ module.exports = {
           },
         },
       });
-      config.optimization.runtimeChunk("single");
       config
         .plugin("banner")
         .use(Webpack.BannerPlugin, [

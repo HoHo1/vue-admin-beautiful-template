@@ -1,18 +1,16 @@
 <template>
   <el-dropdown @command="handleCommand">
-    <span class="el-dropdown-link">
+    <span class="avatar-dropdown">
       <el-avatar
         class="user-avatar"
         :src="require('@/assets/user.gif')"
       ></el-avatar>
-      <span class="hidden-md-and-down user-name">{{ userName }}</span>
-      <i class="hidden-md-and-down el-icon-arrow-down el-icon--right"></i>
     </span>
 
     <el-dropdown-menu slot="dropdown">
       <el-dropdown-item>
         <vab-icon :icon="['fas', 'user']"></vab-icon>
-        个人中心
+        {{ userName }}的个人中心
       </el-dropdown-item>
       <el-dropdown-item command="logout" divided>
         <vab-icon :icon="['fas', 'sign-out-alt']"></vab-icon>
@@ -24,6 +22,7 @@
 
 <script>
 import { mapGetters } from "vuex";
+
 export default {
   name: "Avatar",
   computed: {
@@ -54,3 +53,18 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+.avatar-dropdown {
+  .user-avatar {
+    cursor: pointer;
+  }
+
+  .user-name {
+    position: relative;
+    margin-right: 5px;
+    margin-left: 5px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+</style>
