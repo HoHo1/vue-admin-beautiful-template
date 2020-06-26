@@ -122,11 +122,11 @@ export default {
     position: relative;
 
     &.fixed {
-      padding-top: 96px;
+      padding-top: calc(#{$base-top-bar-height} + #{$base-tags-bar-height});
     }
 
     &.fixed.no-tags-bar {
-      padding-top: 56px;
+      padding-top: $base-top-bar-height;
     }
 
     ::v-deep {
@@ -180,11 +180,11 @@ export default {
     }
 
     &.fixed {
-      padding-top: 96px;
+      padding-top: calc(#{$base-nav-bar-height} + #{$base-tags-bar-height});
     }
 
     &.fixed.no-tags-bar {
-      padding-top: 56px;
+      padding-top: $base-nav-bar-height;
     }
 
     .vab-main {
@@ -250,11 +250,6 @@ export default {
         .vab-main {
           width: 100%;
           margin-left: 0;
-
-          .app-main-container {
-            width: calc(100% - 10px) !important;
-            margin: 5px !important;
-          }
         }
       }
 
