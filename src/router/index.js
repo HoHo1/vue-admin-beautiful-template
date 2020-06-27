@@ -1,7 +1,13 @@
+/**
+ * @copyright chuzhixin 1204505056@qq.com
+ * @description router全局配置，如有必要可分文件抽离
+ */
+
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Layout from "@/layouts";
 import EmptyLayout from "@/layouts/EmptyLayout";
+import { routerMode } from "@/config/settings";
 
 Vue.use(VueRouter);
 
@@ -85,16 +91,20 @@ export const asyncRoutes = [
 ];
 
 const router = new VueRouter({
-  mode: "hash",
+  mode: routerMode,
   scrollBehavior: () => ({
     y: 0,
   }),
   routes: constantRoutes,
 });
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch((err) => err);
+};
 
 export function resetRouter() {
   router.matcher = new VueRouter({
-    mode: "hash",
+    mode: routerMode,
     scrollBehavior: () => ({
       y: 0,
     }),
