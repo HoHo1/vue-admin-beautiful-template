@@ -48,7 +48,7 @@
     "zx-icon": "^1.0.9",
     "zx-keel": "^0.9.2",
     "zx-templates": "^0.0.7",
-    "zx-layouts": "^0.3.3"
+    "zx-layouts": "^0.3.7"
   },
   "devDependencies": {
     "@babel/register": "^7.10.3",
