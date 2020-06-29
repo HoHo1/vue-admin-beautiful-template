@@ -13,7 +13,7 @@ module.exports = {
   lintOnSave: true,
   // 进行编译的依赖
   transpileDependencies: ["vue-echarts", "resize-detector", "zx-layouts"],
-  // 默认的接口地址 如果是开发环境或测试环境那么走vab-mock-server，如果是生产环境那么默认为空当然你也可以选择自己配置成需要的接口地址
+  // 默认的接口地址 如果是开发环境和生产环境走vab-mock-server，当然你也可以选择自己配置成需要的接口地址
   baseURL:
     process.env.NODE_ENV !== "production"
       ? "vab-mock-server"
